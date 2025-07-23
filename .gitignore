@@ -1,0 +1,8 @@
+# Ignore raw and processed data directories
+models/*.pth
+logs/profiling_logs/*.lprof
+__pycache__/
+*.ipynb
+.ruff_cache/
+src.egg-info/
+wav2vec2_finetuned_models/
