@@ -1,7 +1,7 @@
 
 data:
-  # raw_dir: "../SPEECHCOMMANDS"
-  raw_dir: "../audioDemo/data/raw"
+  raw_dir: "../SPEECHCOMMANDS"
+  # raw_dir: "../audioDemo/data/raw"
   sample_rate: 16000
   batch_size: 256
   version: "v0.1"
