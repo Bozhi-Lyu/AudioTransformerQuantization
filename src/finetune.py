@@ -24,6 +24,7 @@ training_args = TrainingArguments(
     output_dir="wav2vec2_finetuned_models",
     eval_strategy="epoch",
     save_strategy="epoch",
+    save_total_limit=3,
     learning_rate=config["train"]["learning_rate"],
     per_device_train_batch_size=config["train"]["per_device_train_batch_size"],
     gradient_accumulation_steps=config["train"]["gradient_accumulation_steps"],
