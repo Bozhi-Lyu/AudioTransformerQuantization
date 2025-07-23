@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 
 class SubsetSC(SPEECHCOMMANDS):
-    def __init__(self, subset: str = None, root: str = "../SPEECHCOMMANDS"):
+    def __init__(self, subset: str = None, root: str = "data/", download: bool = True):
         super().__init__(root = root, download=True)
         def load_list(filename):
             filepath = os.path.join(self._path, filename)
@@ -47,7 +47,7 @@ def get_datasets(config):
     sample_rate = config["sample_rate"]
     
     # get label list from entire dataset
-    all_labels = sorted(list(set(d[2] for d in SubsetSC("training", root=root))))
+    all_labels = sorted(list(set(d[2] for d in SubsetSC("training", root=root, download=True))))
     print("Labels found: ", all_labels)
     
     train_dataset = PreprocessedSC("training", root, sample_rate, all_labels)

@@ -1,5 +1,6 @@
 # Ignore raw and processed data directories
 models/*.pth
+data/*
 logs/profiling_logs/*.lprof
 __pycache__/
 *.ipynb
