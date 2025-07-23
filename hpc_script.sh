@@ -18,4 +18,5 @@ conda activate audioml
 # module load numpy/2.1.2-python-3.10.15-openblas-0.3.28
 
 python3 -m pip install -e . -q
+echo "Starting finetuning script..."
 python3 src/finetune.py

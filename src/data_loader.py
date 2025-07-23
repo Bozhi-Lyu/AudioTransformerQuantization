@@ -47,7 +47,7 @@ def get_datasets(config):
     sample_rate = config["sample_rate"]
     
     # get label list from entire dataset
-    all_labels = sorted(list(set(d[2] for d in SubsetSC("training", root=root, download=True))))
+    all_labels = sorted(list(set(d[2] for d in SubsetSC("training", root=root))))
     print("Labels found: ", all_labels)
     
     train_dataset = PreprocessedSC("training", root, sample_rate, all_labels)
