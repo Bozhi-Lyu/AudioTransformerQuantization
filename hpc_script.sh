@@ -1,10 +1,10 @@
 #!/bin/bash
 #BSUB -J audioml_finetune
-#BSUB -n 4
+#BSUB -n 1
 #BSUB -q gpuv100
 #BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -W 18:00
-#BSUB -R "rusage[mem=16GB]"
+#BSUB -R "rusage[mem=4GB]"
 #BSUB -B
 #BSUB -N
 #BSUB -o audioml_finetune_%J.out
