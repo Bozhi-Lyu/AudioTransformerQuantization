@@ -1,7 +1,22 @@
 #!/bin/bash
+#BSUB -J audioml_finetune
+#BSUB -n 4
+#BSUB -q gpuv100
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -W 18:00
+#BSUB -R "rusage[mem=16GB]"
+#BSUB -B
+#BSUB -N
+#BSUB -o audioml_finetune_%J.out
+#BSUB -e audioml_finetune_%J.err
 
-source /root/miniconda3/etc/profile.d/conda.sh
+module unload python3
+source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate audioml
 
-python -m pip install -e . -q
+module swap sqlite3/3.46.1
+module load numpy/2.1.2-python-3.10.15-openblas-0.3.28
+
+
+python3 -m pip install -e . -q
 python src/finetune.py
