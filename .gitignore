@@ -6,6 +6,5 @@ __pycache__/
 *.ipynb
 .ruff_cache/
 src.egg-info/
-wav2vec2_finetuned_models/
 *.err
 *.out
