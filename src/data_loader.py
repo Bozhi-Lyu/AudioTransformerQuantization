@@ -6,8 +6,8 @@ from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 
 class SubsetSC(SPEECHCOMMANDS):
-    def __init__(self, subset: str = None, root: str = "data/", download: bool = True):
-        super().__init__(root = root, download=True)
+    def __init__(self, subset: str = None):
+        super().__init__(root = "./data", download=True)
         def load_list(filename):
             filepath = os.path.join(self._path, filename)
             with open(filepath) as fileobj:

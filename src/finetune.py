@@ -8,6 +8,9 @@ import yaml
 with open("configs/wav2vec2_Finetune.yaml", "r") as f:
     config = yaml.safe_load(f)
 train_dataset, test_dataset, validate_dataset, all_labels = get_datasets(config["data"])
+print("Length of train_dataset: ", len(train_dataset))
+print("Length of test_dataset: ", len(test_dataset))
+print("Length of validate_dataset: ", len(validate_dataset))
 
 metric = evaluate.load("accuracy")
 def compute_metrics(eval_pred):
