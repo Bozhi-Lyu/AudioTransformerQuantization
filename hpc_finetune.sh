@@ -1,6 +1,6 @@
 #!/bin/bash
 #BSUB -J audioml_finetune
-#BSUB -n 1
+#BSUB -n 4
 #BSUB -q gpuv100
 #BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -W 18:00
