@@ -40,5 +40,11 @@ python src/onnx_static_quantize.py \
 
 # 4. Run inference with the quantized model
 python src/onnxRT_inference.py \
-    --model models/wav2vec2_finetuned_static_int8.onnx.onnx \
+    --model models/wav2vec2_finetuned.onnx \
+    --config configs/wav2vec2_Finetune.yaml
+python src/onnxRT_inference.py \
+    --model models/wav2vec2_finetuned_infer.onnx \
+    --config configs/wav2vec2_Finetune.yaml
+python src/onnxRT_inference.py \
+    --model models/wav2vec2_finetuned_static_int8.onnx \
     --config configs/wav2vec2_Finetune.yaml
