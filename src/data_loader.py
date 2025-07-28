@@ -105,7 +105,7 @@ def get_data_loaders(config):
     
     test_loader = DataLoader(
         SubsetSC("testing", root=root),
-        batch_size=config["batch_size"],
+        batch_size=config["inference_batch_size"],
         shuffle=False,
         collate_fn=collate_fn,
         num_workers=num_workers,

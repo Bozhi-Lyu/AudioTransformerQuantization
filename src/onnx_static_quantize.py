@@ -8,7 +8,7 @@ import argparse
 from onnxruntime.quantization import QuantFormat, quantize_static, CalibrationDataReader
 
 class DataReader(CalibrationDataReader):
-    def __init__(self, dataloader, max_batches=10):
+    def __init__(self, dataloader, max_batches=100):
         self.dataloader = iter(dataloader)
         self.iterator = None
         self.max_batches = max_batches

@@ -31,5 +31,14 @@ python -m onnxruntime.quantization.preprocess \
 # 3. Perform static quantization
 python src/onnx_static_quantize.py \
     --input models/wav2vec2_finetuned_infer.onnx \
-    --output models/wav2vec2_finetuned_int8.onnx \
+    --output models/wav2vec2_finetuned_static_int8.onnx \
     --per_channel True
+
+# "WARNING:root:Axis 1 is out-of-range for weight '/wav2vec2/feature_extractor/conv_layers.0/layer_norm/Constant_1_output_0' with rank 1"
+# This warning means a 1D tensor can't be quantized per-channel along axis 1.
+# It's automatically handled by falling back to per-tensor quantization.
+
+# 4. Run inference with the quantized model
+python src/onnxRT_inference.py \
+    --model models/wav2vec2_finetuned_static_int8.onnx.onnx \
+    --config configs/wav2vec2_Finetune.yaml
