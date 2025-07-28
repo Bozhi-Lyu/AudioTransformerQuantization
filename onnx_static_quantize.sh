@@ -4,7 +4,7 @@
 #BSUB -n 4
 #BSUB -q gpuv100
 #BSUB -gpu "num=1:mode=exclusive_process"
-#BSUB -W 4:00
+#BSUB -W 16:00
 #BSUB -R "rusage[mem=16GB]"
 #BSUB -B
 #BSUB -N
