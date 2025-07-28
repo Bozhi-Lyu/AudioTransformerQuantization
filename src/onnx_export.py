@@ -2,6 +2,9 @@ import torch
 from transformers import AutoModelForAudioClassification
 from transformers import AutoFeatureExtractor
 import numpy as np
+import os
+
+os.makedirs("models", exist_ok=True)
 
 model = AutoModelForAudioClassification.from_pretrained("./wav2vec2_finetuned_models/checkpoint-6630")
 model.eval()
