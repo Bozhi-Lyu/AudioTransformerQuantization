@@ -5,7 +5,7 @@
 #BSUB -q gpuv100
 #BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -W 4:00
-#BSUB -R "rusage[mem=4GB]"
+#BSUB -R "rusage[mem=16GB]"
 #BSUB -B
 #BSUB -N
 #BSUB -o audioml_onnx_static_quantize_%J.out
