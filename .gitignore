@@ -2,6 +2,8 @@
 models/*.pth
 !models/.gitkeep
 data/*
+wav2vec2_finetuned_models/checkpoint-6630
+
 logs/profiling_logs/*.lprof
 __pycache__/
 *.ipynb
