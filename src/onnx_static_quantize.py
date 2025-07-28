@@ -1,6 +1,5 @@
 from src.data_loader import get_data_loaders
 import torch
-from transformers import AutoModelForAudioClassification
 from transformers import AutoFeatureExtractor
 import numpy as np
 import yaml
@@ -9,9 +8,10 @@ import argparse
 from onnxruntime.quantization import QuantFormat, quantize_static, CalibrationDataReader
 
 class DataReader(CalibrationDataReader):
-    def __init__(self, dataloader):
+    def __init__(self, dataloader, max_batches=10):
         self.dataloader = iter(dataloader)
         self.iterator = None
+        self.max_batches = max_batches
 
     def get_next(self):
         if self.iterator is None:
@@ -19,13 +19,11 @@ class DataReader(CalibrationDataReader):
         return next(self.iterator, None)
 
     def _yield_batches(self):
-        for batch in self.dataloader:
-            # Assume input is a tuple (input_tensor, label)
-            if isinstance(batch, (list, tuple)):
-                input_tensor = batch[0].squeeze(1)  # Remove channel dimension if present
-            else:
-                input_tensor = batch.squeeze(1)
-            yield {"input_values": input_tensor.numpy()}
+        for i, batch in enumerate(self.dataloader):
+            if i >= self.max_batches:
+                break
+            input_tensor = batch[0].squeeze(1).cpu().numpy()
+            yield {"input_values": input_tensor}
 
 if __name__ == "__main__":
 

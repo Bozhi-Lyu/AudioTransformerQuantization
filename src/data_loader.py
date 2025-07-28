@@ -114,7 +114,7 @@ def get_data_loaders(config):
 
     validate_loader = DataLoader(
         SubsetSC("validation", root=root),
-        batch_size=config["batch_size"],
+        batch_size=config["eval_batch_size"],
         shuffle=False,
         collate_fn=collate_fn,
         num_workers=num_workers,

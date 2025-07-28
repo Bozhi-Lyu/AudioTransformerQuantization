@@ -3,6 +3,7 @@ data:
   raw_dir: "data/"
   sample_rate: 16000
   batch_size: 256
+  eval_batch_size: 4
   version: "v0.1"
 
 model_type: "wav2vec2"
