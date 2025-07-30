@@ -31,7 +31,7 @@ python -m onnxruntime.quantization.preprocess \
 # 3. Perform static quantization
 python src/onnx_static_quantize.py \
     --input models/wav2vec2_finetuned_infer.onnx \
-    --output models/wav2vec2_finetuned_static_int8.onnx \
+    --output models/wav2vec2_finetuned_static_int8_469.onnx \
     --per_channel True
 
 # "WARNING:root:Axis 1 is out-of-range for weight '/wav2vec2/feature_extractor/conv_layers.0/layer_norm/Constant_1_output_0' with rank 1"
@@ -46,5 +46,5 @@ python src/onnx_static_quantize.py \
 #     --model models/wav2vec2_finetuned_infer.onnx \
 #     --config configs/wav2vec2_Finetune.yaml
 python src/onnxRT_inference.py \
-    --model models/wav2vec2_finetuned_static_int8.onnx \
+    --model models/wav2vec2_finetuned_static_int8_469.onnx \
     --config configs/wav2vec2_Finetune.yaml
