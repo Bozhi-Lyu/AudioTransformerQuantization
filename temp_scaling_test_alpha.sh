@@ -2,15 +2,15 @@
 
 #BSUB -J temperature_alpha_test[1-5]
 #BSUB -n 4
-#BSUB -q gpuv100
+#BSUB -q hpc
 #BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -W 12:00
 #BSUB -R "rusage[mem=4GB]"
 #BSUB -R "span[hosts=1]"
 #BSUB -B
 #BSUB -N
-#BSUB -o alpha%J.out
-#BSUB -e alpha%J.err
+#BSUB -o alpha%J_%I.out
+#BSUB -e alpha%J_%I.err
 
 module unload python3
 source /dtu/projects/02613_2025/conda/conda_init.sh
