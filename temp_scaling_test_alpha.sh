@@ -2,7 +2,7 @@
 
 #BSUB -J temperature_alpha_test[1-5]
 #BSUB -n 4
-#BSUB -q hpc
+#BSUB -q gpuv100
 #BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -W 12:00
 #BSUB -R "rusage[mem=4GB]"

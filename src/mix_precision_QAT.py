@@ -84,8 +84,9 @@ if __name__ == "__main__":
         activation=functools.partial(
             FusedMovingAvgObsFakeQuantize,
             observer=MovingAverageMinMaxObserver,
-            quant_min=0,
-            quant_max=255,   # 8-bit full range
+            quant_min=-128,
+            quant_max=127,   # 8-bit full range
+            dtype=torch.qint8,
             reduce_range=False
         ),
         weight=functools.partial(
